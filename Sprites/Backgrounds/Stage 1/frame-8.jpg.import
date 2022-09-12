@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/frame-3.jpg-f45195fa8c1d6b944f16c64cb090c819.stex"
+path="res://.import/frame-8.jpg-496bfc82a779bc65bb3402645407a51d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Backgrounds/Stage 2/frame-3.jpg"
-dest_files=[ "res://.import/frame-3.jpg-f45195fa8c1d6b944f16c64cb090c819.stex" ]
+source_file="res://Sprites/Backgrounds/Stage 1/frame-8.jpg"
+dest_files=[ "res://.import/frame-8.jpg-496bfc82a779bc65bb3402645407a51d.stex" ]
 
 [params]
 
