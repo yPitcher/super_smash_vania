@@ -48,7 +48,6 @@
 [ext_resource path="res://Sprites/Backgrounds/Stage 1/frame-3.jpg" type="Texture" id=46]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=47]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 750, 10 )
 
@@ -60,6 +59,11 @@ extents = Vector2( 748.5, 287.75 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 35 ), ExtResource( 37 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 36 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "basic_atack",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "idle",
@@ -79,11 +83,6 @@ animations = [ {
 "loop": true,
 "name": "walking",
 "speed": 17.0
-}, {
-"frames": [ ExtResource( 35 ), ExtResource( 37 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 36 ), ExtResource( 35 ) ],
-"loop": true,
-"name": "basic_atack",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -139,7 +138,7 @@ position = Vector2( 121, 498 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 2 )
 animation = "basic_atack"
-frame = 6
+frame = 5
 speed_scale = 0.5
 playing = true
 
@@ -156,5 +155,4 @@ shape = SubResource( 3 )
 position = Vector2( 749, 282 )
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 4 )
-frame = 4
 playing = true

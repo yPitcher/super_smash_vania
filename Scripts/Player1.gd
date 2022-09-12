@@ -8,8 +8,7 @@ const JUMP_HEIGHT 	= -650
 var timer
 var sequence = []
 const moves = {
-	"hadouken"  : ["down", "front", "punch"],
-	"shoryuken" : ["front", "down", "front", "punch"],
+	"ultimate"  : ["down", "front", "punch"]
 }
 
 var motion = Vector2()
@@ -85,10 +84,10 @@ func _physics_process(delta):
 			motion.x = SPEED
 		elif Input.is_action_pressed("ui_ultimate"):
 			$AnimatedSprite.play('ultimate')
-		elif Input.is_action_just_pressed("ui_basic_atack"):
-			$AnimatedSprite.play('basic_atack')
 		else:
 			$AnimatedSprite.play('idle')
+			if Input.is_action_just_pressed("ui_basic_atack"):
+				$AnimatedSprite.play('basic_atack')
 			motion.x = 0
 			
 	motion = move_and_slide(motion, UP)
