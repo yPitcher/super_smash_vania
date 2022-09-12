@@ -1,0 +1,8 @@
+Movimentação / ataques dos personagens
+
+array com as entradas de dados;
+preencher esse array com as entradas,
+verificar o timeout
+se timeout, ele irá executar tudo o que tinha nesse array,
+Depois disso, zerar o array
+E começar a coletar as entradas novamente
