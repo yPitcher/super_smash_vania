@@ -53,6 +53,10 @@ ui_basic_atack={
  ]
 }
 
+[mono]
+
+project/assembly_name="Fighting game"
+
 [physics]
 
 common/enable_pause_aware_picking=true

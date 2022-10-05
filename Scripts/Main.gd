@@ -4,11 +4,12 @@ func _ready():
 	Global.loadStage(self, "stage1")
 	
 	# Loads the player one
-	Global.loadPlayer1(self, "soma", Vector2(100,100))
+	Global.loadPlayer1(self, "soma", Vector2(100,80))
 	
-	for _i in self.get_children():
-		print(_i)
+	# Instantiate Camera2D Node
+	print(get_child(0).get_child(0).)
+	Global.loadCamera(self, "cameraByPlayer", 1)
 	
-func _process(delta):
-	$Camera2D.position = $Player1.position
 
+func _physics_process(delta):
+	$Camera2D.position = $Player1.position
