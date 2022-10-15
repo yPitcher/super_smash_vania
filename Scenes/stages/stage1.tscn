@@ -31,7 +31,7 @@ animations = [ {
 [node name="Scene" type="StaticBody2D" parent="."]
 
 [node name="collision_floor" type="CollisionShape2D" parent="Scene"]
-position = Vector2( 751, 589 )
+position = Vector2( 751, 571 )
 shape = SubResource( 1 )
 
 [node name="collision_wall_l" type="CollisionShape2D" parent="Scene"]
@@ -55,8 +55,8 @@ shape = SubResource( 6 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 749, 282 )
+position = Vector2( 750, 280 )
 scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 4 )
-frame = 7
+frame = 4
 playing = true

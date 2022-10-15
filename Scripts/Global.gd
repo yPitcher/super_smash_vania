@@ -27,7 +27,9 @@ func loadStage( context, character):
 
 	context.add_child( stage )
 
-func loadCamera( context, camera,
+func loadCamera(
+		context,
+		camera,
 		limit_topsource = -10000000,
 		limit_rightsource = 10000000,
 		limit_bottomsource = 10000000,
