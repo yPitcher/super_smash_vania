@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "CharacterBase",
+"language": "GDScript",
+"path": "res://Scripts/CharacterBase.gd"
+} ]
+_global_script_class_icons={
+"CharacterBase": ""
+}
+
 [application]
 
 config/name="Fighting game"

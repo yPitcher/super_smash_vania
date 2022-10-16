@@ -50,7 +50,7 @@ animations = [ {
 "name": "basic_atack",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "jump",
 "speed": 12.0
@@ -64,6 +64,11 @@ animations = [ {
 "loop": true,
 "name": "walking",
 "speed": 30.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "fall",
+"speed": 15.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=3]
@@ -77,9 +82,9 @@ script = ExtResource( 2 )
 position = Vector2( 121, 498 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 2 )
-animation = "idle"
+animation = "fall"
+frame = 4
 speed_scale = 0.5
-playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
