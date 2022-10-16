@@ -5,7 +5,16 @@ const GRAVITY 		= 20
 const SPEED 		= 300
 const JUMP_HEIGHT 	= -400
 
-enum stateMachine { IDLE, WALKING, JUMP, FALL }
+enum stateMachine {
+	#movements / simple states
+	IDLE, WALKING, JUMP, FALL,
+	#middle attacks
+	IDDLE_MIDDLE_FIST_ATTACK, IDDLE_MIDDLE_LEG_ATTACK,
+	#bottom attacks
+
+	#on_air attacks
+	JUMP_LEG_ATTACK
+}
 
 var timer
 var motion = Vector2()
