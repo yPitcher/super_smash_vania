@@ -60,29 +60,29 @@ animations = [ {
 "name": "walking",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 37 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 37 ) ],
 "loop": true,
-"name": "jump",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
-"loop": true,
-"name": "ultimate",
-"speed": 10.0
+"name": "idleMiddleFistAttack",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 38 ) ],
 "loop": true,
 "name": "jumpLegAttack",
 "speed": 15.0
 }, {
+"frames": [ ExtResource( 17 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "ultimate",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "jump",
+"speed": 12.0
+}, {
 "frames": [ ExtResource( 14 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "fall",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 37 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 37 ) ],
-"loop": true,
-"name": "idleMiddleFistAttack",
 "speed": 15.0
 } ]
 
@@ -98,7 +98,6 @@ position = Vector2( 121, 498 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
 speed_scale = 0.5
 
 [node name="MeleeHitbox" parent="AnimatedSprite" instance=ExtResource( 41 )]
