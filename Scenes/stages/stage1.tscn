@@ -55,8 +55,8 @@ shape = SubResource( 6 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 750, 280 )
-scale = Vector2( 2.5, 2.5 )
+position = Vector2( 750, 297.875 )
+scale = Vector2( 2.5, 2.65889 )
 frames = SubResource( 4 )
-frame = 7
+frame = 1
 playing = true

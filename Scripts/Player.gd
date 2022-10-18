@@ -9,16 +9,18 @@ func _process(delta):
 		stateMachine.IDDLE_MIDDLE_FIST_ATTACK: _state_idle_middle_fist_attack()
 		stateMachine.IDDLE_MIDDLE_LEG_ATTACK: _state_idle_middle_leg_attack()
 		stateMachine.JUMP_LEG_ATTACK: _state_jump_leg_attack()
-
+		stateMachine.TAKE_DAMAGE: _state_take_damage(10)
 
 
 func _state_idle():
 	_set_animation('idle')
 	_apply_gravity()
 	_set_flip()
-
+	
 	if direction:
 		_enter_state(stateMachine.WALKING)
+	elif isReceivingDamage:
+		_enter_state(stateMachine.TAKE_DAMAGE)
 	elif Input.is_action_just_pressed('ui_up') && is_on_floor():
 		_enter_state(stateMachine.JUMP)
 	elif Input.is_action_just_pressed('ui_basic_fist_attack') && is_on_floor():
@@ -26,7 +28,6 @@ func _state_idle():
 	elif Input.is_action_just_pressed('ui_basic_leg_attack') && is_on_floor():
 		_enter_state(stateMachine.IDDLE_MIDDLE_LEG_ATTACK)
 		
-
 func _state_walk():
 	_set_animation('walking')
 	_apply_gravity()
@@ -62,10 +63,12 @@ func _state_fall():
 func _state_idle_middle_fist_attack():
 	_stop_movement()
 	_set_animation('idleMiddleFistAttack')
+	_load_hitbox('middle')
 	
 	if enteredState:
 		enteredState = false
 		yield(get_tree().create_timer(0.4), "timeout")
+		_kill_hitbox('middle')
 		_enter_state(stateMachine.IDLE)
 
 func _state_idle_middle_leg_attack():
@@ -83,6 +86,16 @@ func _state_jump_leg_attack():
 
 	if enteredState:
 		enteredState = false
-		yield(get_tree().create_timer(0.4), "timeout")
+		yield(get_tree().create_timer(0.87), "timeout")
 		_stop_movement()
+		_enter_state(stateMachine.IDLE)
+
+func _state_take_damage(amount: int):
+	_apply_gravity()
+	_set_animation('takeDamage')
+	
+	if enteredState:
+		enteredState = false
+		yield(get_tree().create_timer(0.5), "timeout")
+		isReceivingDamage = false
 		_enter_state(stateMachine.IDLE)

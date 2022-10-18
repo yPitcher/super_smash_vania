@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "CharacterBase",
 "language": "GDScript",
 "path": "res://Scripts/CharacterBase.gd"
+}, {
+"base": "Area2D",
+"class": "HitBox",
+"language": "GDScript",
+"path": "res://Scripts/Hitbox.gd"
+}, {
+"base": "Area2D",
+"class": "Hurtbox",
+"language": "GDScript",
+"path": "res://Scripts/Hurtbox.gd"
 } ]
 _global_script_class_icons={
-"CharacterBase": ""
+"CharacterBase": "",
+"HitBox": "",
+"Hurtbox": ""
 }
 
 [application]

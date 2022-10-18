@@ -3,8 +3,9 @@ extends Node
 func _ready():
 	Global.loadStage(self, "stage1")
 	
-	# Loads the player one
-	Global.loadPlayer1(self, "soma", Vector2(300,60))
+	# Loads the players
+	Global.loadPlayer(self, "soma", Vector2(300,60), 1)
+	Global.loadPlayer(self, "julius", Vector2(600,60), 2)
 	
 	# Instantiate Camera2D Node
 	#print(get_child(0).get_child(0))
@@ -12,4 +13,4 @@ func _ready():
 	
 
 func _physics_process(delta):
-	$Camera2D.position = $Player1.position
+	$Camera2D.position = $Player.position

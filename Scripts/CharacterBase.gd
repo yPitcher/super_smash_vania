@@ -1,13 +1,18 @@
 class_name CharacterBase extends KinematicBody2D
 
+const hitboxes = {
+	'middle': preload('res://Scenes/hitboxes/MeleeHitbox.tscn'),
+}
+
 const UP 			= Vector2(0,-5)
 const GRAVITY 		= 20
 const SPEED 		= 300
-const JUMP_HEIGHT 	= -400
+const JUMP_HEIGHT 	= -610
+const BASIC_DAMAGE	= 10
 
 enum stateMachine {
 	#movements / simple states
-	IDLE, WALKING, JUMP, FALL,
+	IDLE, WALKING, JUMP, FALL, TAKE_DAMAGE
 	#middle attacks
 	IDDLE_MIDDLE_FIST_ATTACK, IDDLE_MIDDLE_LEG_ATTACK,
 	#bottom attacks
@@ -16,12 +21,15 @@ enum stateMachine {
 	JUMP_LEG_ATTACK
 }
 
-var timer
+var isStaticEnemy = false
+var isReceivingDamage = false
+var isAttacking = false
 var motion = Vector2()
 var animation = ''
 var direction = 0 #FALSE para direita & TRUE para esquerda
 var state = stateMachine.IDLE
 var enteredState = true
+
 onready var animatedSprite : AnimatedSprite = get_node('AnimatedSprite')
 
 func _physics_process(delta: float):
@@ -43,8 +51,19 @@ func _stop_movement():
   motion.x = 0
 
 func _set_flip():
-	if direction:
+	if direction && !isStaticEnemy:
 		animatedSprite.flip_h = false if direction > 0 else true
+
+func _load_hitbox( hbtype ):
+	var hitbox = hitboxes[hbtype].instance()
+	animatedSprite.add_child( hitbox )
+
+func _kill_hitbox( hbtype ):
+	var hitbox
+	match hbtype:
+		'middle': hitbox = animatedSprite.get_node('MeleeHitbox')
+
+	animatedSprite.remove_child(hitbox)
 
 func _enter_state(newState):
 	if state != newState:
