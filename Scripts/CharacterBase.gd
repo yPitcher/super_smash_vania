@@ -1,7 +1,7 @@
 class_name CharacterBase extends KinematicBody2D
 
 const hitboxes = {
-	'middle': preload('res://Scenes/hitboxes/MeleeHitbox.tscn'),
+	'middle': preload('res://Scenes/boxes/MeleeHitbox.tscn'),
 }
 
 const UP 			= Vector2(0,-5)
@@ -63,7 +63,7 @@ func _kill_hitbox( hbtype ):
 	match hbtype:
 		'middle': hitbox = animatedSprite.get_node('MeleeHitbox')
 
-	animatedSprite.remove_child(hitbox)
+	print(animatedSprite.remove_child(hitbox))
 
 func _enter_state(newState):
 	if state != newState:

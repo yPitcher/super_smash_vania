@@ -40,8 +40,9 @@
 [ext_resource path="res://Sprites/Characters/Soma Cruz (Castlevania)/sprite105.png" type="Texture" id=38]
 [ext_resource path="res://Sprites/Characters/Soma Cruz (Castlevania)/sprite118.png" type="Texture" id=39]
 [ext_resource path="res://Sprites/Characters/Soma Cruz (Castlevania)/sprite104-7.png" type="Texture" id=40]
-[ext_resource path="res://Scenes/hitboxes/MeleeHitbox.tscn" type="PackedScene" id=41]
-[ext_resource path="res://Scenes/hitboxes/MeleeHurtbox.tscn" type="PackedScene" id=42]
+[ext_resource path="res://Scenes/boxes/MeleeHitbox.tscn" type="PackedScene" id=41]
+[ext_resource path="res://Scenes/boxes/MeleeHurtbox.tscn" type="PackedScene" id=42]
+
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {

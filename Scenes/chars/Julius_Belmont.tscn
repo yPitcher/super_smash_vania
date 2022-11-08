@@ -11,7 +11,7 @@
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite50.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite45.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite46.png" type="Texture" id=11]
-[ext_resource path="res://Scenes/hitboxes/MeleeHurtbox.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/boxes/MeleeHurtbox.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite70.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite71.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite44.png" type="Texture" id=15]
@@ -32,11 +32,12 @@
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite5.png" type="Texture" id=30]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite18.png" type="Texture" id=31]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite23.png" type="Texture" id=32]
-[ext_resource path="res://Scenes/hitboxes/MeleeHitbox.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Scenes/boxes/MeleeHitbox.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Sprites/Characters/Soma Cruz (Castlevania)/sprite133.png" type="Texture" id=36]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite1.png" type="Texture" id=42]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite2.png" type="Texture" id=43]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite3.png" type="Texture" id=44]
+
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {

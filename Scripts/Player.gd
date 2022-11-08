@@ -63,10 +63,10 @@ func _state_fall():
 func _state_idle_middle_fist_attack():
 	_stop_movement()
 	_set_animation('idleMiddleFistAttack')
-	_load_hitbox('middle')
 	
 	if enteredState:
 		enteredState = false
+		_load_hitbox('middle')
 		yield(get_tree().create_timer(0.4), "timeout")
 		_kill_hitbox('middle')
 		_enter_state(stateMachine.IDLE)
