@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite40.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
@@ -32,12 +32,10 @@
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite5.png" type="Texture" id=30]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite18.png" type="Texture" id=31]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite23.png" type="Texture" id=32]
-[ext_resource path="res://Scenes/boxes/MeleeHitbox.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Sprites/Characters/Soma Cruz (Castlevania)/sprite133.png" type="Texture" id=36]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite1.png" type="Texture" id=42]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite2.png" type="Texture" id=43]
 [ext_resource path="res://Sprites/Characters/Julius Belmont (Castlevania)/sprite3.png" type="Texture" id=44]
-
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -50,21 +48,6 @@ animations = [ {
 "loop": true,
 "name": "idleMiddleLegAttack",
 "speed": 15.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 26 ), ExtResource( 32 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "walking",
-"speed": 30.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "jump",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "takeDamage",
-"speed": 1.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
 "loop": true,
@@ -81,10 +64,25 @@ animations = [ {
 "name": "fall",
 "speed": 60.0
 }, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "jump",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 26 ), ExtResource( 32 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "walking",
+"speed": 30.0
+}, {
 "frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "idleMiddleFistAttack",
 "speed": 60.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "takeDamage",
+"speed": 1.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -92,18 +90,19 @@ extents = Vector2( 40, 83.5 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( 6, -1 )
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 110, 491 )
+rotation = -0.00344075
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "idle"
 speed_scale = 0.2
 
 [node name="Hurtbox" parent="AnimatedSprite" instance=ExtResource( 12 )]
-
-[node name="MeleeHitbox" parent="AnimatedSprite" instance=ExtResource( 33 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

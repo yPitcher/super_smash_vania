@@ -21,11 +21,11 @@ func _state_idle():
 		_enter_state(stateMachine.WALKING)
 	elif isReceivingDamage:
 		_enter_state(stateMachine.TAKE_DAMAGE)
-	elif Input.is_action_just_pressed('ui_up') && is_on_floor():
+	elif Input.is_action_just_pressed('ui_up_p2') && is_on_floor():
 		_enter_state(stateMachine.JUMP)
-	elif Input.is_action_just_pressed('ui_basic_fist_attack') && is_on_floor():
+	elif Input.is_action_just_pressed('ui_basic_fist_attack_p2') && is_on_floor():
 		_enter_state(stateMachine.IDDLE_MIDDLE_FIST_ATTACK)
-	elif Input.is_action_just_pressed('ui_basic_leg_attack') && is_on_floor():
+	elif Input.is_action_just_pressed('ui_basic_leg_attack_p2') && is_on_floor():
 		_enter_state(stateMachine.IDDLE_MIDDLE_LEG_ATTACK)
 		
 func _state_walk():
@@ -37,7 +37,7 @@ func _state_walk():
 	if !direction:
 		_enter_state(stateMachine.IDLE)
 
-	if Input.is_action_just_pressed('ui_up') && is_on_floor():
+	if Input.is_action_just_pressed('ui_up_p2') && is_on_floor():
 		_enter_state(stateMachine.JUMP)
 
 func _state_jump():
@@ -48,7 +48,7 @@ func _state_jump():
 		motion.y = JUMP_HEIGHT
 	elif motion.y > 0 :
 		_enter_state(stateMachine.FALL)
-	elif Input.is_action_just_pressed('ui_basic_leg_attack') && !is_on_floor():
+	elif Input.is_action_just_pressed('ui_basic_leg_attack_p2') && !is_on_floor():
 		_apply_gravity()
 		_enter_state(stateMachine.JUMP_LEG_ATTACK)
 

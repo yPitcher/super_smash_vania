@@ -26,15 +26,19 @@ var isReceivingDamage = false
 var isAttacking = false
 var motion = Vector2()
 var animation = ''
+var isPlayer2 = false
 var direction = 0 #FALSE para direita & TRUE para esquerda
 var state = stateMachine.IDLE
 var enteredState = true
 
 onready var animatedSprite : AnimatedSprite = get_node('AnimatedSprite')
 
-func _physics_process(delta: float):
+func _physics_process(_delta: float):
 	motion = move_and_slide(motion, UP)
-	direction = Input.get_axis('ui_left', 'ui_right')
+	if !isPlayer2:
+		direction = Input.get_axis('ui_left', 'ui_right')
+	else:
+		direction = Input.get_axis('ui_left_p2', 'ui_left_p2')
 
 func _move_and_slide():
   motion.x = direction * SPEED
@@ -63,9 +67,12 @@ func _kill_hitbox( hbtype ):
 	match hbtype:
 		'middle': hitbox = animatedSprite.get_node('MeleeHitbox')
 
-	print(animatedSprite.remove_child(hitbox))
+	animatedSprite.remove_child(hitbox)
 
-func _enter_state(newState):
+func _enter_state( newState ):
 	if state != newState:
 		state = newState
 		enteredState = true
+
+func _get_player_number():
+	return self.isPlayer2

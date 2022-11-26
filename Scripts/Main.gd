@@ -12,5 +12,5 @@ func _ready():
 	Global.loadCamera(self, "cameraByPlayer", 1, 1500, 1000, -1)
 	
 
-func _physics_process(delta):
+func _physics_process(_delta: float):
 	$Camera2D.position = $Player.position

@@ -22,6 +22,7 @@ func loadPlayer( context, character, pos, playernum ):
 	context.add_child( player )
 	if playernum != 1:
 		player.animatedSprite.flip_h = true
+		player.isPlayer2 = true
 
 func loadStaticEnemy( context, character, pos ):
 	var enemy = characters[character].instance()
