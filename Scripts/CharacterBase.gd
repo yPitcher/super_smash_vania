@@ -38,7 +38,11 @@ func _physics_process(_delta: float):
 	if !isPlayer2:
 		direction = Input.get_axis('ui_left', 'ui_right')
 	else:
-		direction = Input.get_axis('ui_left_p2', 'ui_left_p2')
+		direction = Input.get_axis('ui_left_p2', 'ui_right_p2')
+		if(direction):
+			print("tentando andar man", isPlayer2)
+	
+	
 
 func _move_and_slide():
   motion.x = direction * SPEED
