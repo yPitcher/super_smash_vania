@@ -30,6 +30,7 @@ var isPlayer2 = false
 var direction = 0 #FALSE para direita & TRUE para esquerda
 var state = stateMachine.IDLE
 var enteredState = true
+var temporary_direction = null
 
 onready var animatedSprite : AnimatedSprite = get_node('AnimatedSprite')
 
@@ -39,13 +40,12 @@ func _physics_process(_delta: float):
 		direction = Input.get_axis('ui_left', 'ui_right')
 	else:
 		direction = Input.get_axis('ui_left_p2', 'ui_right_p2')
-		if(direction):
-			print("tentando andar man", isPlayer2)
-	
-	
 
 func _move_and_slide():
-  motion.x = direction * SPEED
+	if get_tree().has_network_peer():
+		Server._get_player_pos(motion, direction)
+	else:
+		motion.x = direction * SPEED
 
 func _apply_gravity():
   motion.y += GRAVITY

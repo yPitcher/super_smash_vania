@@ -34,11 +34,13 @@ _global_script_class_icons={
 
 config/name="Fighting game"
 run/main_scene="res://Scenes/Main menu.tscn"
+run/flush_stdout_on_print=true
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Scripts/Global.gd"
+Server="*res://Scripts/Server_interface.gd"
 
 [input]
 

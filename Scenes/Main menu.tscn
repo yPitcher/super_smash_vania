@@ -54,4 +54,5 @@ scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 1 )
 playing = true
 
-[connection signal="pressed" from="Control/Button2" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Control/Button3" to="." method="_on_Button3_pressed"]
