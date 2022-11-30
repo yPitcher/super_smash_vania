@@ -32,6 +32,7 @@ var state = stateMachine.IDLE
 var enteredState = true
 var temporary_direction = null
 
+onready var node_id = get_instance_id()
 onready var animatedSprite : AnimatedSprite = get_node('AnimatedSprite')
 
 func _physics_process(_delta: float):
@@ -43,7 +44,7 @@ func _physics_process(_delta: float):
 
 func _move_and_slide():
 	if get_tree().has_network_peer():
-		Server._get_player_pos(motion, direction)
+		Server._get_player_pos(motion, direction, node_id)
 	else:
 		motion.x = direction * SPEED
 

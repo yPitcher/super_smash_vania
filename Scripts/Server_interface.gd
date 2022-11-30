@@ -29,5 +29,9 @@ func _OnConexaoSucesso():
 	connected = true
 	
 #id 1 para enviar direto ao server (focar em enviar sempre para o server)
-sync func _get_player_pos(var motion, var direction):
-	rpc_id(1, "_get_player_pos", motion, direction)
+func _get_player_pos(var motion, var direction, var node_id):
+	rpc_id(1, "_get_player_pos", motion, direction, node_id)
+	
+remote func _set_player_pos(var server_motion, var node_id):
+	var node_object = instance_from_id(node_id)
+	node_object.motion = server_motion
