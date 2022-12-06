@@ -8,7 +8,6 @@ func _ready():
 	Global.loadPlayer(self, "julius", Vector2(800,60), 2)
 	
 	# Instantiate Camera2D Node
-	#print(get_child(0).get_child(0))
 	Global.loadCamera(self, "cameraByPlayer", 1, 1500, 1000, -1)
 	
 

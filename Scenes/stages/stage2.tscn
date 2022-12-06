@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sfx/Background/main_theme.wav" type="AudioStream" id=1]
-[ext_resource path="res://Sprites/Backgrounds/Stage 1/frame-2.jpg" type="Texture" id=3]
-[ext_resource path="res://Sprites/Backgrounds/Stage 1/frame-5.jpg" type="Texture" id=4]
-[ext_resource path="res://Sprites/Backgrounds/Stage 1/frame-6.jpg" type="Texture" id=5]
-[ext_resource path="res://Sprites/Backgrounds/Stage 1/frame-3.jpg" type="Texture" id=6]
-[ext_resource path="res://Sprites/Backgrounds/Stage 1/frame-1.jpg" type="Texture" id=7]
-[ext_resource path="res://Sprites/Backgrounds/Stage 1/frame-4.jpg" type="Texture" id=8]
-[ext_resource path="res://Sprites/Backgrounds/Stage 1/frame-7.jpg" type="Texture" id=9]
-[ext_resource path="res://Sprites/Backgrounds/Stage 1/frame-8.jpg" type="Texture" id=10]
+[ext_resource path="res://Sprites/Backgrounds/Stage 2/frame-4.jpg" type="Texture" id=2]
+[ext_resource path="res://Sprites/Backgrounds/Stage 2/frame-3.jpg" type="Texture" id=3]
+[ext_resource path="res://Sprites/Backgrounds/Stage 2/frame-2.jpg" type="Texture" id=4]
+[ext_resource path="res://Sprites/Backgrounds/Stage 2/frame-1.jpg" type="Texture" id=5]
+[ext_resource path="res://Sprites/Backgrounds/Stage 2/frame-6.jpg" type="Texture" id=6]
+[ext_resource path="res://Sprites/Backgrounds/Stage 2/frame-8.jpg" type="Texture" id=7]
+[ext_resource path="res://Sprites/Backgrounds/Stage 2/frame-5.jpg" type="Texture" id=8]
+[ext_resource path="res://Sprites/Backgrounds/Stage 2/frame-7.jpg" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 750, 10 )
@@ -21,7 +21,7 @@ extents = Vector2( 748.5, 287.75 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 8.0
@@ -56,10 +56,10 @@ shape = SubResource( 6 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 750, 297.875 )
-scale = Vector2( 2.5, 2.65889 )
+position = Vector2( 751, 297 )
+scale = Vector2( 2.68333, 2.94 )
 frames = SubResource( 4 )
-frame = 6
+frame = 5
 playing = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

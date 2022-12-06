@@ -7,6 +7,7 @@ const characters = {
 
 const stages = {
 	'stage1': preload('res://Scenes/stages/stage1.tscn'),
+	'stage2': preload('res://Scenes/stages/stage2.tscn'),
 }
 
 const cameras = {

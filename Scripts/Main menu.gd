@@ -7,3 +7,4 @@ func _on_Button2_pressed():
 
 func _on_Button3_pressed():
 	Server.connectToServer()
+	get_tree().change_scene("res://Scenes/OnlineMain.tscn")
