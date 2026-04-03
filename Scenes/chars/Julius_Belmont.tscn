@@ -39,50 +39,50 @@
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 20 ), ExtResource( 44 ), ExtResource( 30 ) ],
-"loop": true,
-"name": "idle",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 28 ), ExtResource( 36 ) ],
-"loop": true,
-"name": "idleMiddleLegAttack",
-"speed": 15.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 26 ), ExtResource( 32 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "walking",
-"speed": 30.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "fall",
 "speed": 60.0
+}, {
+"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 20 ), ExtResource( 44 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "idle",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "idleMiddleFistAttack",
 "speed": 60.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"frames": [ ExtResource( 28 ), ExtResource( 36 ) ],
 "loop": true,
-"name": "ultimate",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "takeDamage",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 16 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "jumpLegAttack",
+"name": "idleMiddleLegAttack",
 "speed": 15.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "jump",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 16 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "jumpLegAttack",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "takeDamage",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "ultimate",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 26 ), ExtResource( 32 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "walking",
+"speed": 30.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -100,6 +100,7 @@ rotation = -0.00344075
 scale = Vector2( 4, 4 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 3
 speed_scale = 0.2
 
 [node name="Hurtbox" parent="AnimatedSprite" instance=ExtResource( 12 )]

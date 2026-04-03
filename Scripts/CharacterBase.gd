@@ -4,33 +4,35 @@ const hitboxes = {
 	'middle': preload('res://Scenes/boxes/MeleeHitbox.tscn'),
 }
 
-const UP 			= Vector2(0,-5)
-const GRAVITY 		= 20
-const SPEED 		= 300
-const JUMP_HEIGHT 	= -610
-const BASIC_DAMAGE	= 10
+const UP           = Vector2(0,-5)
+const GRAVITY      = 20
+const SPEED        = 300
+const JUMP_HEIGHT  = -610
+const BASIC_DAMAGE = 10
 
 enum stateMachine {
 	#movements / simple states
-	IDLE, WALKING, JUMP, FALL, TAKE_DAMAGE
+	IDLE, WALKING, JUMP, FALL, TAKE_DAMAGE,
 	#middle attacks
-	IDDLE_MIDDLE_FIST_ATTACK, IDDLE_MIDDLE_LEG_ATTACK,
+	IDLE_MIDDLE_FIST_ATTACK, IDLE_MIDDLE_LEG_ATTACK,
 	#bottom attacks
 
 	#on_air attacks
 	JUMP_LEG_ATTACK
 }
 
-var isStaticEnemy = false
-var isReceivingDamage = false
-var isAttacking = false
-var motion = Vector2()
-var animation = ''
-var isPlayer2 = false
-var direction = 0 #FALSE para direita & TRUE para esquerda
-var state = stateMachine.IDLE
-var enteredState = true
+var isStaticEnemy      = false
+var isReceivingDamage  = false
+var isAttacking        = false
+var motion             = Vector2()
+var animation          = ''
+var isPlayer2          = false
+var direction          = 0
+var state              = stateMachine.IDLE
+var enteredState       = true
 var temporary_direction = null
+var hp                 = 100
+var max_hp             = 100
 
 onready var animatedSprite : AnimatedSprite = get_node('AnimatedSprite')
 
@@ -48,7 +50,7 @@ func _move_and_slide():
 		motion.x = direction * SPEED
 
 func _apply_gravity():
-  motion.y += GRAVITY
+	motion.y += GRAVITY
 
 func _set_animation(anim: String):
 	if animation != anim:
@@ -56,27 +58,39 @@ func _set_animation(anim: String):
 		animatedSprite.play(animation)
 
 func _stop_movement():
-  motion.x = 0
+	motion.x = 0
 
 func _set_flip():
 	if direction && !isStaticEnemy:
 		animatedSprite.flip_h = false if direction > 0 else true
 
-func _load_hitbox( hbtype ):
+func _load_hitbox(hbtype):
+	# Guard against loading a hitbox that is already active
+	if animatedSprite.has_node('MeleeHitbox'):
+		return
 	var hitbox = hitboxes[hbtype].instance()
-	animatedSprite.add_child( hitbox )
+	animatedSprite.add_child(hitbox)
 
-func _kill_hitbox( hbtype ):
-	var hitbox
+func _kill_hitbox(hbtype):
+	var node_name
 	match hbtype:
-		'middle': hitbox = animatedSprite.get_node('MeleeHitbox')
+		'middle': node_name = 'MeleeHitbox'
+	if animatedSprite.has_node(node_name):
+		var hitbox = animatedSprite.get_node(node_name)
+		animatedSprite.remove_child(hitbox)
+		hitbox.queue_free()
 
-	animatedSprite.remove_child(hitbox)
-
-func _enter_state( newState ):
+func _enter_state(newState):
 	if state != newState:
 		state = newState
 		enteredState = true
 
 func _get_player_number():
 	return self.isPlayer2
+
+# Apply damage to this character. Ignores hits while already in damage state.
+func take_damage(amount: int):
+	if isReceivingDamage:
+		return
+	hp = max(0, hp - amount)
+	isReceivingDamage = true
